@@ -1,0 +1,90 @@
+[debug] [2024-10-14T17:59:52.498Z] ----------------------------------------------------------------------
+[debug] [2024-10-14T17:59:52.502Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2024-10-14T17:59:52.502Z] CLI Version:   13.22.0
+[debug] [2024-10-14T17:59:52.502Z] Platform:      win32
+[debug] [2024-10-14T17:59:52.502Z] Node Version:  v20.13.1
+[debug] [2024-10-14T17:59:52.503Z] Time:          Mon Oct 14 2024 23:59:52 GMT+0600 (Bangladesh Standard Time)
+[debug] [2024-10-14T17:59:52.503Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-14T17:59:52.620Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-14T17:59:52.620Z] > authorizing via signed-in user (ruhulaminshazid@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\LENOVO\Desktop\from\GFC-FE-APP
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-10-14T18:00:02.906Z] Using project from CLI flag: gf-clone-c266a
+[debug] [2024-10-14T18:00:02.909Z] Checked if tokens are valid: true, expires at: 1728932326050
+[debug] [2024-10-14T18:00:02.909Z] Checked if tokens are valid: true, expires at: 1728932326050
+[debug] [2024-10-14T18:00:02.917Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gf-clone-c266a [none]
+[debug] [2024-10-14T18:00:03.705Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gf-clone-c266a 403
+[debug] [2024-10-14T18:00:03.705Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gf-clone-c266a {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2024-10-14T18:00:03.706Z] HTTP Error: 403, The caller does not have permission
+[debug] [2024-10-14T18:00:03.895Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project gf-clone-c266a. Please make sure the project exists and your account has permission to access it.
+[debug] [2024-10-14T18:00:48.805Z] ----------------------------------------------------------------------
+[debug] [2024-10-14T18:00:48.809Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2024-10-14T18:00:48.809Z] CLI Version:   13.22.0
+[debug] [2024-10-14T18:00:48.809Z] Platform:      win32
+[debug] [2024-10-14T18:00:48.809Z] Node Version:  v20.13.1
+[debug] [2024-10-14T18:00:48.810Z] Time:          Tue Oct 15 2024 00:00:48 GMT+0600 (Bangladesh Standard Time)
+[debug] [2024-10-14T18:00:48.810Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-14T18:00:48.921Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-14T18:00:48.921Z] > authorizing via signed-in user (ruhulaminshazid@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\LENOVO\Desktop\from\GFC-FE-APP
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-10-14T18:01:54.930Z] Using project from CLI flag: gf-clone-c266a
+[debug] [2024-10-14T18:01:54.932Z] Checked if tokens are valid: true, expires at: 1728932326050
+[debug] [2024-10-14T18:01:54.932Z] Checked if tokens are valid: true, expires at: 1728932326050
+[debug] [2024-10-14T18:01:54.935Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gf-clone-c266a [none]
+[debug] [2024-10-14T18:01:55.722Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gf-clone-c266a 403
+[debug] [2024-10-14T18:01:55.723Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gf-clone-c266a {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2024-10-14T18:01:55.723Z] HTTP Error: 403, The caller does not have permission
+[debug] [2024-10-14T18:01:55.909Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project gf-clone-c266a. Please make sure the project exists and your account has permission to access it.

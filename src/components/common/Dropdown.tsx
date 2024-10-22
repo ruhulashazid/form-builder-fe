@@ -9,7 +9,7 @@ import { PopupContext } from '@mui/base/Unstable_Popup';
 import { PROFILE_ACTION_MENUS } from 'utils/constants';
 import { useAuth } from 'components/contexts/auth-context';
 import { Avatar } from '@mui/material';
-import avatarimage from "../../assets/images/sample_profile.jpg";
+import avatarimage from "../../assets/images/avater.jpg";
 
 
 export default function ProfileButton() {

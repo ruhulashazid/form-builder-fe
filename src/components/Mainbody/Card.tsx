@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import MoreVertSharpIcon from '@mui/icons-material/MoreVertSharp';
 import StorageSharpIcon from '@mui/icons-material/StorageSharp';
-import formimage from "../../assets/images/t-shirt.png";
+import formimage from "../../assets/images/sample folder image.jpg";
 import "./Mainbody.scss"
 
 // displaying document name, created time on home page
