@@ -122,8 +122,8 @@ function Login() {
               />
             </div>
             <div className="buttons">
-              <Button color="primary" variant="contained" onClick={handleRegister} disabled={isRequestPending}>Sign Up</Button>
-              <Button color="primary" onClick={(e) => { setIsLogin(!isLogin); }}>Sign In</Button>
+              <Button className="sign-up-btn1" variant="contained" onClick={handleRegister} disabled={isRequestPending}>Sign Up</Button>
+              <Button className="sign-in-btn1" onClick={(e) => { setIsLogin(!isLogin); }}>Sign In</Button>
             </div>
           </div>
         ) : (
@@ -156,8 +156,8 @@ function Login() {
               />
             </div>
             <div className="buttons">
-              <Button color="primary" variant="contained" onClick={handleLoginFunction} disabled={isRequestPending}>Sign In</Button>
-              <Button color="primary" onClick={(e) => { setIsLogin(!isLogin); }}>Sign Up</Button>
+              <Button className="sign-in-btn2" variant="contained" onClick={handleLoginFunction} disabled={isRequestPending}>Sign In</Button>
+              <Button className="sign-up-btn2" onClick={(e) => { setIsLogin(!isLogin); }}>Sign Up</Button>
             </div>
           </div>
         )}

@@ -3,14 +3,14 @@
 .login-container {
   @include flex-row;
   width: 100%;
-  background-color: #ffd4e8;
+  background-color:$main;
   height: 100vh;
   justify-content: center;
 
   .main {
-    width: 500px;
-    background-color: $main;
-    height: 500px;
+    width: 400px;
+    background-color: $box-color;
+    height: 450px;
     overflow: hidden;
     border-radius: 10px;
     @include flex-column;
@@ -28,7 +28,7 @@
 
     input {
       @include flex-row;
-      width: 20 * $lg;
+      width: 15 * $lg;
       height: $lg;
       background: $bgColor;
       padding: $sm;
@@ -59,6 +59,28 @@
     .error-text {
       color: red;
       margin: 2*$xs 0;
+    }
+
+    .sign-up-btn1 {
+      background-color: #ff2b8e;
+      color: #ffffff;
+      &:hover {
+        background-color: #d80266;
+      }
+    }
+    .sign-in-btn1 {
+      color:#000000;
+    }
+
+    .sign-in-btn2 {
+      background-color: #ff2b8e;
+      color: #ffffff;
+      &:hover {
+        background-color: #d80266;
+      }
+    }
+    .sign-up-btn2 {
+      color:#000000;
     }
   }
 }
