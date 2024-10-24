@@ -10,7 +10,7 @@ import {
 type propsType = { questionIndex: number, showQuestionPaper: boolean, question: Question, onChange: Function };
 
 export const DisplayQuestion: React.FC<propsType> = memo(({ questionIndex, question, showQuestionPaper, onChange }) => {
-  return <div className="saved-questions">
+  return <div className="d-questions">
     <Typography className="question-text">
       {(questionIndex + 1).toString() + ". " + question.question} {(question.required) && <span className="required-star">*</span>}
     </Typography>

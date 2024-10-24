@@ -85,12 +85,12 @@ function FormHeader() {
                   Are you sure to delete this document ?
                 </h2>
                 <div className='btns'>
-                  <Button variant="contained" color="inherit" onClick={handleClose}>
+                  <Button variant="contained" color="success" onClick={handleClose}>
                     Close
                   </Button>
                   <Button
                     variant="contained"
-                    color="success"
+                    color="error"
                     disabled={isRequestPending}
                     onClick={deleteDocument}
                   >
