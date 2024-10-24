@@ -7,7 +7,7 @@ import {
 import toast from "react-hot-toast";
 import { useState } from "react";
 
-export const API_BASE_URL = "http://localhost:9000";
+export const API_BASE_URL = "https://form-builder-be.onrender.com";
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -26,7 +26,7 @@ const useAxios = () => {
     method = HTTP_METHODS.GET,
     payload: any = null
   ) => {
-    let url = "http://localhost:9000" + path;
+    let url = "https://form-builder-be.onrender.com" + path;
 
     // headers are set here, retrieves the jwt token from local storage
     let headers = {
