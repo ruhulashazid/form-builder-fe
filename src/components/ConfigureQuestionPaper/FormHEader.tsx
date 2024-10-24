@@ -150,7 +150,7 @@ function FormHeader() {
                 </IconButton>
               </Tooltip>
 
-              <AlertDialog url={`http://localhost:3000${location.pathname}`} />
+              <AlertDialog url={`https://form-builder-fe-beta.vercel.app${location.pathname}`} />
 
               <Tooltip title="More">
                 <IconButton>
