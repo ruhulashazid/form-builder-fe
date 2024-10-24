@@ -1,52 +1,65 @@
-import * as React from 'react';
-import { Dropdown } from '@mui/base/Dropdown';
-import { Menu, MenuListboxSlotProps } from '@mui/base/Menu';
-import { MenuButton as BaseMenuButton } from '@mui/base/MenuButton';
-import { MenuItem as BaseMenuItem } from '@mui/base/MenuItem';
-import { styled } from '@mui/system';
-import { CssTransition } from '@mui/base/Transitions';
-import { PopupContext } from '@mui/base/Unstable_Popup';
-import { PROFILE_ACTION_MENUS } from 'utils/constants';
-import { useAuth } from 'components/contexts/auth-context';
-import { Avatar } from '@mui/material';
+import * as React from "react";
+import { Dropdown } from "@mui/base/Dropdown";
+import { Menu, MenuListboxSlotProps } from "@mui/base/Menu";
+import { MenuButton as BaseMenuButton } from "@mui/base/MenuButton";
+import { MenuItem as BaseMenuItem } from "@mui/base/MenuItem";
+import { styled } from "@mui/system";
+import { CssTransition } from "@mui/base/Transitions";
+import { PopupContext } from "@mui/base/Unstable_Popup";
+import { PROFILE_ACTION_MENUS, SESSION_STORAGE_KEYS } from "utils/constants";
+import { useAuth } from "components/contexts/auth-context";
+import { Avatar } from "@mui/material";
 import avatarimage from "../../assets/images/avater.jpg";
-
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileButton() {
   const { handleLogout } = useAuth();
+  const navigate = useNavigate();
   const createHandleMenuClick = (menuItem: string) => {
     return () => {
       if (menuItem.includes(PROFILE_ACTION_MENUS.LOGOUT)) {
         localStorage.clear();
         handleLogout(true);
       }
+
+      if (menuItem.includes("profile")) {
+        navigate("/profile");
+      }
     };
   };
 
   return (
     <Dropdown>
-      <MenuButton> <Avatar src={avatarimage} /></MenuButton>
+      <MenuButton>
+        <Avatar
+          src={localStorage.getItem(SESSION_STORAGE_KEYS.IMAGE) ?? avatarimage}
+        />
+      </MenuButton>
       <Menu slots={{ listbox: AnimatedListbox }}>
-        <MenuItem onClick={createHandleMenuClick(PROFILE_ACTION_MENUS.LOGOUT)}>{PROFILE_ACTION_MENUS.LOGOUT}</MenuItem>
+        <MenuItem onClick={createHandleMenuClick("profile")}>Profile</MenuItem>
+
+        <MenuItem onClick={createHandleMenuClick(PROFILE_ACTION_MENUS.LOGOUT)}>
+          {PROFILE_ACTION_MENUS.LOGOUT}
+        </MenuItem>
       </Menu>
     </Dropdown>
   );
 }
 
 const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
-  200: '#DAE2ED',
-  300: '#C7D0DD',
-  400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
-  900: '#1C2025',
+  50: "#F3F6F9",
+  100: "#E5EAF2",
+  200: "#DAE2ED",
+  300: "#C7D0DD",
+  400: "#B0B8C4",
+  500: "#9DA8B7",
+  600: "#6B7A90",
+  700: "#434D5B",
+  800: "#303740",
+  900: "#1C2025",
 };
 
-const Listbox = styled('ul')(
+const Listbox = styled("ul")(
   ({ theme }) => `
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
@@ -57,10 +70,12 @@ const Listbox = styled('ul')(
   border-radius: 6px;
   overflow: auto;
   outline: 0px;
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-  border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-  box-shadow: 0px 4px 30px ${theme.palette.mode === 'dark' ? grey[900] : grey[200]};
+  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+  box-shadow: 0px 4px 30px ${
+    theme.palette.mode === "dark" ? grey[900] : grey[200]
+  };
   z-index: 1;
 
   .closed & {
@@ -82,23 +97,23 @@ const Listbox = styled('ul')(
   .placement-bottom & {
     transform-origin: top;
   }
-  `,
+  `
 );
 
 const AnimatedListbox = React.forwardRef(function AnimatedListbox(
   props: MenuListboxSlotProps,
-  ref: React.ForwardedRef<HTMLUListElement>,
+  ref: React.ForwardedRef<HTMLUListElement>
 ) {
   const { ownerState, ...other } = props;
   const popupContext = React.useContext(PopupContext);
 
   if (popupContext == null) {
     throw new Error(
-      'The `AnimatedListbox` component cannot be rendered outside a `Popup` component',
+      "The `AnimatedListbox` component cannot be rendered outside a `Popup` component"
     );
   }
 
-  const verticalPlacement = popupContext.placement.split('-')[0];
+  const verticalPlacement = popupContext.placement.split("-")[0];
 
   return (
     <CssTransition
@@ -121,7 +136,7 @@ const MenuItem = styled(BaseMenuItem)(
   &:last-of-type {
     border-bottom: none;
   }
-  `,
+  `
 );
 
 const MenuButton = styled(BaseMenuButton)(
@@ -134,9 +149,9 @@ const MenuButton = styled(BaseMenuButton)(
   color: white;
   transition: all 150ms ease;
   cursor: pointer;
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
   border: none;
   margin-right: 10px;
-  color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
-  `,
+  color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
+  `
 );

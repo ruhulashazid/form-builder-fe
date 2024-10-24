@@ -1,7 +1,6 @@
-
 import { Option, QUESTION_TYPES } from "./constants";
 import { createRandomString, isSelectionType } from "./util";
-import { ObjectId } from 'bson';
+import { ObjectId } from "bson";
 
 // data structure to create the question
 export class Question {
@@ -13,11 +12,14 @@ export class Question {
   public options: Option[];
   public _id: string;
   public points: number;
+  public imageUrl: string | null;
 
   constructor(data?: Question) {
-    this.question = data?.question || 'Question';
+    this.imageUrl = data?.imageUrl ?? null;
+    this.question = data?.question || "Question";
     this.options = data?.options || [{ option: "Option" }];
-    this.questionType = data?.questionType as QUESTION_TYPES || QUESTION_TYPES.RADIO;
+    this.questionType =
+      (data?.questionType as QUESTION_TYPES) || QUESTION_TYPES.RADIO;
     this.open = data?.open == false ? false : true;
     this.required = data?.required || false;
     this.answer = data?.answer || false;
@@ -48,6 +50,17 @@ export class Question {
 
   updateOption(optionIndex: number, value: string): Question {
     this.options[optionIndex].option = value;
+    return this;
+  }
+
+  updateOptionImageUrl(optionIndex: number, url: string): Question {
+    this.options[optionIndex].imageUrl = url;
+    return this;
+  }
+
+  updateImageUrl(url: string): Question {
+    this.questionType = QUESTION_TYPES.IMAGE;
+    this.imageUrl = url;
     return this;
   }
 

@@ -1,7 +1,17 @@
-import axios, { AxiosError } from 'axios';
-import { HTTP_METHODS, REQUEST_IN_PROGRESS, SESSION_STORAGE_KEYS } from './constants';
-import toast from 'react-hot-toast';
-import { useState } from 'react';
+import axios, { AxiosError } from "axios";
+import {
+  HTTP_METHODS,
+  REQUEST_IN_PROGRESS,
+  SESSION_STORAGE_KEYS,
+} from "./constants";
+import toast from "react-hot-toast";
+import { useState } from "react";
+
+export const API_BASE_URL = "http://localhost:9000";
+
+export const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+});
 
 // custom hook to handle the requests
 const useAxios = () => {
@@ -11,13 +21,17 @@ const useAxios = () => {
   const [isRequestPending, setIsRequestPending] = useState(false);
 
   // method to handle all type of api request ( GET, POST, PUT, DELETE )
-  const HttpRequestController = async (path: string, method = HTTP_METHODS.GET, payload: any = null) => {
-    let url = 'https://form-builder-be.onrender.com' + path;
-    
-    // headers are set here, retrieves the jwt token from local storage 
+  const HttpRequestController = async (
+    path: string,
+    method = HTTP_METHODS.GET,
+    payload: any = null
+  ) => {
+    let url = "http://localhost:9000" + path;
+
+    // headers are set here, retrieves the jwt token from local storage
     let headers = {
       "Content-Type": "application/json",
-      Authorization: localStorage.getItem(SESSION_STORAGE_KEYS.TOKEN)
+      Authorization: localStorage.getItem(SESSION_STORAGE_KEYS.TOKEN),
     };
 
     // check if any request already exists
@@ -59,29 +73,31 @@ const useAxios = () => {
       if (error.response)
         error.response
           ? toast.error(
-            error.response.data.message
-              ? error.response.data.message
-              : error.response.statusText
-          ) : toast.error("Network error");
+              error.response.data.message
+                ? error.response.data.message
+                : error.response.statusText
+            )
+          : toast.error("Network error");
     } else {
-      toast.error('An error occurred. Please try again.');
+      toast.error("An error occurred. Please try again.");
     }
     throw new Error(error.message);
   };
 
-  // handling the api request, and showing the 
+  // handling the api request, and showing the
   // success or error message after the request is completed
-  const handlePromiseRequest = (method: Function, loadingMessage: string,
-    successMessage: string, errorMessage: string): void => {
-    toast.promise(
-      method(),
-      {
-        loading: loadingMessage,
-        success: successMessage,
-        error: errorMessage
-      }
-    );
-  }
+  const handlePromiseRequest = (
+    method: Function,
+    loadingMessage: string,
+    successMessage: string,
+    errorMessage: string
+  ): void => {
+    toast.promise(method(), {
+      loading: loadingMessage,
+      success: successMessage,
+      error: errorMessage,
+    });
+  };
 
   return { HttpRequestController, isRequestPending, handlePromiseRequest };
 };

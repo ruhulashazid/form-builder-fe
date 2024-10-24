@@ -1,8 +1,22 @@
-import React from 'react';
-import { FormControl, RadioGroup, Radio, FormControlLabel, FormGroup, Checkbox, Input, TextField } from '@mui/material';
+import React from "react";
+import {
+  FormControl,
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  FormGroup,
+  Checkbox,
+  Input,
+  TextField,
+} from "@mui/material";
 
 // answered is used when these components are rendered from userresponseformview component
-export const MultipleChoiceQuestion: React.FC<any> = ({ question, options, onChange, answered }) => {
+export const MultipleChoiceQuestion: React.FC<any> = ({
+  question,
+  options,
+  onChange,
+  answered,
+}) => {
   return (
     <FormControl component="fieldset">
       <RadioGroup
@@ -13,20 +27,30 @@ export const MultipleChoiceQuestion: React.FC<any> = ({ question, options, onCha
         onChange={(e) => onChange(question, e.target.value)}
       >
         {options.map((option: any) => (
-          <FormControlLabel
-            key={option.option}
-            checked={answered ? option.option == answered : undefined}
-            value={option.option}
-            control={<Radio color="success" />}
-            label={option.option}
-          />
+          <>
+            <FormControlLabel
+              key={option.option}
+              checked={answered ? option.option == answered : undefined}
+              value={option.option}
+              control={<Radio color="success" />}
+              label={option.option}
+            />
+            {!!option.imageUrl && (
+              <img src={option.imageUrl} height={100} width={100} />
+            )}
+          </>
         ))}
       </RadioGroup>
     </FormControl>
   );
-}
+};
 
-export const CheckboxQuestion: React.FC<any> = ({ question, options, onChange, answered }) => {
+export const CheckboxQuestion: React.FC<any> = ({
+  question,
+  options,
+  onChange,
+  answered,
+}) => {
   const handleChange = (option: any) => (event: any) => {
     onChange(question, "", option._id, event.target.checked);
   };
@@ -46,9 +70,14 @@ export const CheckboxQuestion: React.FC<any> = ({ question, options, onChange, a
       </FormGroup>
     </FormControl>
   );
-}
+};
 
-export const ShortAnswerQuestion: React.FC<any> = ({ question, onChange, showQuestionPaper, answered }) => {
+export const ShortAnswerQuestion: React.FC<any> = ({
+  question,
+  onChange,
+  showQuestionPaper,
+  answered,
+}) => {
   return (
     <Input
       disabled={!!answered}
@@ -60,8 +89,31 @@ export const ShortAnswerQuestion: React.FC<any> = ({ question, onChange, showQue
       required={question.required}
     />
   );
-}
-export const DateQuestion: React.FC<any> = ({ question, onChange, answered }) => {
+};
+
+export const ImageQuestion: React.FC<any> = ({
+  question,
+  onChange,
+  showQuestionPaper,
+  answered,
+}) => {
+  return !!question.imageUrl ? (
+    <img
+      width={300}
+      height={300}
+      src={question.imageUrl}
+      style={{ margin: "auto", display: "block" }}
+    />
+  ) : (
+    <div>No image uploaded</div>
+  );
+};
+
+export const DateQuestion: React.FC<any> = ({
+  question,
+  onChange,
+  answered,
+}) => {
   return (
     <>
       <TextField
@@ -74,9 +126,13 @@ export const DateQuestion: React.FC<any> = ({ question, onChange, answered }) =>
       />
     </>
   );
-}
+};
 
-export const TimeQuestion: React.FC<any> = ({ question, onChange, answered }) => {
+export const TimeQuestion: React.FC<any> = ({
+  question,
+  onChange,
+  answered,
+}) => {
   return (
     <>
       <TextField
@@ -89,4 +145,4 @@ export const TimeQuestion: React.FC<any> = ({ question, onChange, answered }) =>
       />
     </>
   );
-}
+};

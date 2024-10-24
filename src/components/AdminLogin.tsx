@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import {
   HTTP_METHODS,
   REQUEST_FAILURE_MESSAGES,
   REQUEST_IN_PROGRESS,
   REQUEST_SUCCESS_MESSAGES,
   REQUEST_URLS,
-  ROUTE_PATHS,
   SESSION_STORAGE_KEYS,
   UserLogin,
   UserRegister,
@@ -17,17 +15,16 @@ import useAxios from "../utils/axios";
 import toast from "react-hot-toast";
 import { useAuth } from "./contexts/auth-context";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function AdminLogin() {
   let [isLogin, setIsLogin] = useState(false);
   let [register, setRegister] = useState<UserRegister>({});
   let [login, setLogin] = useState<UserLogin>({});
-  const navigate = useNavigate();
   const { HttpRequestController, isRequestPending, handlePromiseRequest } =
     useAxios();
   const { handleLogin } = useAuth();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: ROUTE_PATHS.HOME } };
+  const navigate = useNavigate();
 
   const setLocalStorageData = (response: any) => {
     localStorage.setItem(SESSION_STORAGE_KEYS.TOKEN, response.token);
@@ -36,7 +33,6 @@ function Login() {
     localStorage.setItem(SESSION_STORAGE_KEYS.USERNAME, response.data.username);
     localStorage.setItem(SESSION_STORAGE_KEYS.IMAGE, response.data.image);
     localStorage.setItem(SESSION_STORAGE_KEYS.IS_AUTH, "true");
-    navigate(from, { replace: true });
     handleLogin(true);
   };
 
@@ -105,7 +101,7 @@ function Login() {
         {!isLogin ? (
           <div className="signup">
             <label htmlFor="chk" aria-hidden="true">
-              Sign up
+              Sign up as admin
             </label>
             <div className="input-box">
               <input
@@ -172,19 +168,18 @@ function Login() {
               >
                 Sign In
               </Button>
-
               <Button
                 className="sign-in-btn1"
-                onClick={() => navigate("/login/admin")}
+                onClick={() => navigate("/login")}
               >
-                Are you admin?
+                Are you user?
               </Button>
             </div>
           </div>
         ) : (
           <div className="signup">
             <label htmlFor="chk" aria-hidden="true">
-              Login
+              Login as admin
             </label>
             <div className="input-box">
               <input
@@ -226,12 +221,11 @@ function Login() {
               >
                 Sign Up
               </Button>
-
               <Button
                 className="sign-in-btn1"
-                onClick={() => navigate("/login/admin")}
+                onClick={() => navigate("/login")}
               >
-                Are you admin?
+                Are you user?
               </Button>
             </div>
           </div>
@@ -241,4 +235,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default AdminLogin;
