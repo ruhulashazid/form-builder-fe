@@ -68,9 +68,10 @@ function ManageUsers() {
             <Grid item lg={4}>
               <Card key={u._id} elevation={2}>
                 <CardContent>
+                  <img height={60} width={50} style={{borderRadius:9999}} src={u.image}/>
                   <Typography>Name: {u.username}</Typography>
-                  <Typography>email: {u.username}</Typography>
-                  <Typography>Name: {u.username}</Typography>
+                  <Typography>email: {u.email}</Typography>
+                  <Typography>phone: {u.phone}</Typography>
                 </CardContent>
                 <CardActions>
                   <Button
