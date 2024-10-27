@@ -44,16 +44,16 @@
 13. User can drag and drop the questions to reorder the questions
 
 
-**Project Live** : form-builder-fe-beta.vercel.app
+**Project Live** : [form-builder-fe-beta.vercel.app]
 
 
 ## Available Scripts
 
 In the project directory, you can run:
-### `npm install`
-### Change the backend path: [https://form-builder-be.onrender.com] to [http://localhost:9000]
-### Backendcode: [https://github.com/ruhulashazid/form-builder-be]
-### `npm start`
+1. `npm install`
+2. Change the backend path: [https://form-builder-be.onrender.com] to [http://localhost:9000]
+3. Run Backend code: [https://github.com/ruhulashazid/form-builder-be]
+4. `npm start`
 ### chenge 
 
 Runs the app in the development mode.\
