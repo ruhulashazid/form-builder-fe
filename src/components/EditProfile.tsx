@@ -15,7 +15,7 @@ import { useAuth } from "./contexts/auth-context";
 
 function EditProfile() {
   const { HttpRequestController } = useAxios();
-  const { handleLogout } = useAuth();
+  const { handleLogout, user } = useAuth();
   const logout = () => {
     localStorage.clear();
     handleLogout(true);
@@ -61,6 +61,18 @@ function EditProfile() {
     localStorage.setItem(SESSION_STORAGE_KEYS.IMAGE, updatedUser.image ?? "");
 
     window.location.reload();
+  };
+
+  const handleDeleteProfile = async () => {
+    await apiClient.delete<{ message: string; user: any }>(
+      `/profile/${user.userId}`,
+      {
+        headers: {
+          Authorization: localStorage.getItem(SESSION_STORAGE_KEYS.TOKEN),
+        },
+      }
+    );
+    logout();
   };
 
   return (
@@ -125,6 +137,7 @@ function EditProfile() {
 
             <CardActions>
               <Button type={"submit"}>Update</Button>
+              <Button onClick={handleDeleteProfile}>delete</Button>
               <Button type={"button"} color={"secondary"} onClick={logout}>
                 Logout
               </Button>

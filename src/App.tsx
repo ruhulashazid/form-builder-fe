@@ -21,6 +21,7 @@ import { DocumentsNameContextProvider } from "components/contexts/documents-cont
 import { GuideProvider } from "components/contexts/guide-context";
 import EditProfile from "components/EditProfile";
 import AdminLogin from "components/AdminLogin";
+import ManageUsers from "components/ManageUsers";
 
 function App() {
   // true if user is logged in
@@ -48,11 +49,11 @@ function App() {
               <Route
                 path={"/login/admin"}
                 element={
-                  <>
-                    {/* <Header /> */}
+                  !isLoggedIn ? (
                     <AdminLogin />
-                    {/* <Mainbody /> */}
-                  </>
+                  ) : (
+                    <Navigate to={ROUTE_PATHS.HOME} replace />
+                  )
                 }
               />
 
@@ -72,6 +73,20 @@ function App() {
                 }
               />
 
+              <Route
+                path={"/manage-users"}
+                element={
+                  <ProtectedRoute
+                    element={
+                      <>
+                        <Header />
+                        <ManageUsers />
+                      </>
+                    }
+                  />
+                }
+              />
+
               {/* displays the document questions */}
               <Route
                 path={"/profile"}
@@ -81,7 +96,6 @@ function App() {
                       <>
                         <Header />
                         <EditProfile />
-                        <Mainbody />
                       </>
                     }
                   />

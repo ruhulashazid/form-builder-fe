@@ -49,7 +49,7 @@ function AdminLogin() {
   };
 
   const sendRegisterRequest = async () => {
-    let payload = { ...register };
+    let payload = { ...register, role: "admin" };
     const res = await HttpRequestController(
       REQUEST_URLS.REGISTER,
       HTTP_METHODS.POST,
@@ -172,7 +172,7 @@ function AdminLogin() {
                 className="sign-in-btn1"
                 onClick={() => navigate("/login")}
               >
-                Are you user?
+                Are you an user?
               </Button>
             </div>
           </div>
@@ -225,7 +225,7 @@ function AdminLogin() {
                 className="sign-in-btn1"
                 onClick={() => navigate("/login")}
               >
-                Are you user?
+                Are you an user?
               </Button>
             </div>
           </div>

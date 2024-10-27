@@ -1,12 +1,12 @@
-import HelpOutlineSharpIcon from '@mui/icons-material/HelpOutlineSharp';
-import MenuSharpIcon from '@mui/icons-material/MenuSharp';
-import SettingsSharpIcon from '@mui/icons-material/SettingsSharp';
-import { Drawer, IconButton } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import React, { useState } from 'react';
+import HelpOutlineSharpIcon from "@mui/icons-material/HelpOutlineSharp";
+import MenuSharpIcon from "@mui/icons-material/MenuSharp";
+import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
+import { Drawer, IconButton } from "@mui/material";
+import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import React, { useState } from "react";
 import formimage from "../../assets/images/forms-icon.png";
 import docimage from "../../assets/images/google-docs--v1.png";
 import driveimage from "../../assets/images/google-drive--v1.png";
@@ -16,9 +16,8 @@ import "./Drawer.scss";
 
 // component to display the side nav bar
 export default function TemporaryDrawer() {
-
   const [state, setState] = useState({
-    left: false
+    left: false,
   });
 
   const toggleDrawer = (anchor: string, open: boolean) => () => {
@@ -26,24 +25,95 @@ export default function TemporaryDrawer() {
   };
 
   const list = (anchor: string) => (
-    <div style={{ width: "250px" }} role="presentation" onClick={toggleDrawer(anchor, false)}>
+    <div
+      style={{ width: "250px" }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+    >
       <Divider />
       <List>
         <ListItem className="logo_title">
           <ListItemText style={{ fontSize: "48px", marginLeft: "5px" }}>
-            <span style={{ color: "blue", fontWeight: "700", fontSize: "22px", fontFamily: "'Product Sans',Arial,sans-serif" }}>G</span>
-            <span style={{ color: "red", fontWeight: "500", fontSize: "22px", fontFamily: "'Product Sans',Arial,sans-serif" }}>o</span>
-            <span style={{ color: "yellow", fontWeight: "500", fontSize: "22px", fontFamily: "'Product Sans',Arial,sans-serif" }}>o</span>
-            <span style={{ color: "blue", fontWeight: "500", fontSize: "22px", fontFamily: "'Product Sans',Arial,sans-serif" }}>g</span>
-            <span style={{ color: "green", fontWeight: "500", fontSize: "22px", fontFamily: "'Product Sans',Arial,sans-serif" }}>l</span>
-            <span style={{ color: "red", fontWeight: "500", fontSize: "22px", marginRight: "10px", fontFamily: "'Product Sans',Arial,sans-serif" }}>e</span>
-            <span style={{ color: "#5f6368", fontWeight: "500", fontSize: "22px", fontFamily: "'Product Sans',Arial,sans-serif" }}> Docs</span>
+            <span
+              style={{
+                color: "blue",
+                fontWeight: "700",
+                fontSize: "22px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              G
+            </span>
+            <span
+              style={{
+                color: "red",
+                fontWeight: "500",
+                fontSize: "22px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              o
+            </span>
+            <span
+              style={{
+                color: "yellow",
+                fontWeight: "500",
+                fontSize: "22px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              o
+            </span>
+            <span
+              style={{
+                color: "blue",
+                fontWeight: "500",
+                fontSize: "22px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              g
+            </span>
+            <span
+              style={{
+                color: "green",
+                fontWeight: "500",
+                fontSize: "22px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              l
+            </span>
+            <span
+              style={{
+                color: "red",
+                fontWeight: "500",
+                fontSize: "22px",
+                marginRight: "10px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              e
+            </span>
+            <span
+              style={{
+                color: "#5f6368",
+                fontWeight: "500",
+                fontSize: "22px",
+                fontFamily: "'Product Sans',Arial,sans-serif",
+              }}
+            >
+              {" "}
+              Docs
+            </span>
           </ListItemText>
         </ListItem>
       </List>
 
       <Divider />
-      <List style={{ marginLeft: "08px", marginRight: "8px", marginTop: "15px" }}>
+      <List
+        style={{ marginLeft: "08px", marginRight: "8px", marginTop: "15px" }}
+      >
         <ListItem className="list-item">
           <img src={docimage} alt="noImage" />
           <div> Docs</div>
@@ -66,8 +136,10 @@ export default function TemporaryDrawer() {
       </List>
 
       <Divider />
-      <List style={{ marginLeft: "08px", marginRight: "08px", marginTop: "15px" }}>
-        <ListItem className="list-item" >
+      <List
+        style={{ marginLeft: "08px", marginRight: "08px", marginTop: "15px" }}
+      >
+        <ListItem className="list-item">
           <SettingsSharpIcon />
           <div style={{ marginLeft: "20px", fontSize: "14px" }}> Settings</div>
         </ListItem>
@@ -79,7 +151,9 @@ export default function TemporaryDrawer() {
       </List>
 
       <Divider />
-      <List style={{ marginLeft: "08px", marginRight: "08px", marginTop: "15px" }}>
+      <List
+        style={{ marginLeft: "08px", marginRight: "08px", marginTop: "15px" }}
+      >
         <ListItem className="list-item">
           <img src={driveimage} alt="noImage" />
           <div style={{ marginLeft: "20px", fontSize: "14px" }}> Drive</div>
@@ -91,12 +165,16 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <React.Fragment key={'left'}>
-        <IconButton onClick={toggleDrawer('left', true)}>
+      <React.Fragment key={"left"}>
+        <IconButton onClick={toggleDrawer("left", true)}>
           <MenuSharpIcon />
         </IconButton>
-        <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-          {list('left')}
+        <Drawer
+          anchor={"left"}
+          open={state["left"]}
+          onClose={toggleDrawer("left", false)}
+        >
+          {list("left")}
         </Drawer>
       </React.Fragment>
     </div>

@@ -1,20 +1,24 @@
-import { Divider, Paper, Tab, Tabs } from '@mui/material';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { a11yProps } from '../../utils/util';
+import { Divider, Paper, Tab, Tabs } from "@mui/material";
+import PropTypes from "prop-types";
+import React from "react";
+import { a11yProps } from "../../utils/util";
 import "./Alert.scss";
-import { QuestionForm } from '../ConfigureQuestionPaper/QuestionUI';
-import { useDocument } from 'components/contexts/questions-context';
-import DataTable from 'components/userview/UserResponseTab';
-import Tour from 'reactour';
-import { useGuide } from 'components/contexts/guide-context';
+import { QuestionForm } from "../ConfigureQuestionPaper/QuestionUI";
+import { useDocument } from "components/contexts/questions-context";
+import DataTable from "components/userview/UserResponseTab";
+import { useGuide } from "components/contexts/guide-context";
 
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
   return (
-    <div role="tabpanel" hidden={value !== index} id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`} {...other}>
-      {value === index && (<div>{children}</div>)}
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <div>{children}</div>}
     </div>
   );
 }
@@ -37,10 +41,16 @@ export default function CenteredTabs() {
 
   return (
     <div className={viewDocument ? "bg-green-color" : ""}>
-      {
-        !viewDocument && (<Paper className="root">
-          <Tabs value={value} onChange={handleChange} indicatorColor={"primary"}
-            textColor="primary" centered className="tabs">
+      {!viewDocument && (
+        <Paper className="root">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor={"primary"}
+            textColor="primary"
+            centered
+            className="tabs"
+          >
             <Tab label="Questions" className="tab" {...a11yProps(0)} />
             <Tab label="Responses" className="tab" {...a11yProps(1)} />
           </Tabs>
@@ -53,30 +63,20 @@ export default function CenteredTabs() {
 
           <TabPanel value={value} index={1}>
             <div className="user-response-container">
-              <div className='header-title'>User Form Responses</div>
+              <div className="header-title">User Form Responses</div>
               {/* Display the user responses  */}
               <DataTable />
             </div>
           </TabPanel>
           <Divider />
-        </Paper>)
-      }
+        </Paper>
+      )}
 
       {/* when user is viewing the question paper, the tab panels will noe be displayed so we will
       display below compoent here */}
-      {
-        viewDocument && (<QuestionForm />)
-      }
+      {viewDocument && <QuestionForm />}
 
       {/* avoid displaying the tour when the document, is in preview mode */}
-      {
-        !viewDocument && (<Tour
-          steps={documentPageGuide}
-          isOpen={guideTour}
-          onRequestClose={closeTour}
-          accentColor="#5cb7b7"
-        />)
-      }
     </div>
-  )
+  );
 }

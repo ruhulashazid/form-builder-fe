@@ -84,11 +84,11 @@ function reducer(state: any, action: any) {
 
       let questionText = action.payload.questionText;
 
-      if (!!questionText) {
+      if (questionText !== undefined) {
         currentQuestions[queIdx].updateQuestion(questionText);
       }
 
-      let imageUrl = action.payload.imageUrl;
+      let imageUrl = action.payload?.imageUrl;
 
       if (!!imageUrl) {
         currentQuestions[queIdx].updateImageUrl(imageUrl);
@@ -132,7 +132,7 @@ function reducer(state: any, action: any) {
       let currentQuestions = [...state.questions];
       let newQue = new Question();
 
-      if (!!action.payload.imageUrl) {
+      if (!!action.payload?.imageUrl) {
         newQue.updateImageUrl(action.payload.imageUrl);
       }
 
@@ -207,7 +207,7 @@ function reducer(state: any, action: any) {
       let currentQuestions = [...state.questions];
 
       let optionValue = action.payload.optionValue;
-      if (!!optionValue) {
+      if (optionValue !== undefined) {
         currentQuestions[queIdx].updateOption(optIndex, optionValue);
       }
 

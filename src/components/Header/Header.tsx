@@ -8,18 +8,29 @@ import TemporaryDrawer from "../Sidenav/Drawer";
 import ProfileButton from "components/common/Dropdown";
 import { useDocumentsName } from "components/contexts/documents-context";
 import { useGuide } from "components/contexts/guide-context";
-import Tour from "reactour";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_PATHS } from "utils/constants";
 
 // Header displayed on home page
 export const Header = memo(() => {
   const { handleInputChange } = useDocumentsName();
   const { guideTour, closeTour, homePageGuide } = useGuide();
+  const navigate = useNavigate();
+
+  const goToHomeScreen = () => {
+    navigate(ROUTE_PATHS.HOME);
+  };
 
   return (
     <div className="header">
       <div className="header-info">
         <TemporaryDrawer />
-        <img src={formimage} alt="no-image" className="form-image" />
+        <img
+          src={formimage}
+          alt="no-image"
+          className="form-image"
+          onClick={goToHomeScreen}
+        />
         <div className="info">Forms</div>
       </div>
       <div className="header-search">
@@ -38,12 +49,6 @@ export const Header = memo(() => {
         </IconButton>
         <ProfileButton />
       </div>
-      {/* <Tour
-      steps={homePageGuide}
-      isOpen={guideTour}
-      onRequestClose={closeTour}
-      accentColor="#5cb7b7"
-    /> */}
     </div>
   );
 });

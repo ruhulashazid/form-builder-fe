@@ -13,7 +13,7 @@ import avatarimage from "../../assets/images/avater.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfileButton() {
-  const { handleLogout } = useAuth();
+  const { handleLogout, user } = useAuth();
   const navigate = useNavigate();
   const createHandleMenuClick = (menuItem: string) => {
     return () => {
@@ -24,6 +24,10 @@ export default function ProfileButton() {
 
       if (menuItem.includes("profile")) {
         navigate("/profile");
+      }
+
+      if (menuItem.includes("manage-users")) {
+        navigate("/manage-users");
       }
     };
   };
@@ -36,6 +40,11 @@ export default function ProfileButton() {
         />
       </MenuButton>
       <Menu slots={{ listbox: AnimatedListbox }}>
+        {user.role === "admin" && (
+          <MenuItem onClick={createHandleMenuClick("manage-users")}>
+            Manage Users
+          </MenuItem>
+        )}
         <MenuItem onClick={createHandleMenuClick("profile")}>Profile</MenuItem>
 
         <MenuItem onClick={createHandleMenuClick(PROFILE_ACTION_MENUS.LOGOUT)}>

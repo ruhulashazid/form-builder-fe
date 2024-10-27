@@ -177,7 +177,7 @@ function Login() {
                 className="sign-in-btn1"
                 onClick={() => navigate("/login/admin")}
               >
-                Are you admin?
+                Are you an admin?
               </Button>
             </div>
           </div>
@@ -231,7 +231,7 @@ function Login() {
                 className="sign-in-btn1"
                 onClick={() => navigate("/login/admin")}
               >
-                Are you admin?
+                Are you an admin?
               </Button>
             </div>
           </div>
