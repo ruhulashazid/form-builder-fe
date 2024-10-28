@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import React from "react";
 import useAxios, { apiClient } from "utils/axios";
+import "./EditProfile.scss";
 import { PROFILE_ACTION_MENUS, SESSION_STORAGE_KEYS } from "utils/constants";
 import { useAuth } from "./contexts/auth-context";
 
@@ -81,6 +82,7 @@ function EditProfile() {
       justifyContent={"center"}
       alignItems={"center"}
       sx={{ height: "100vh" }}
+      color={"secondary"}
     >
       <Grid item lg={6}>
         <form onSubmit={handleSubmit}>

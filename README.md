@@ -44,7 +44,7 @@
 13. User can drag and drop the questions to reorder the questions
 
 
-**Project Live** : [form-builder-fe-beta.vercel.app]
+**Project Live** : [https://form-builder-fe-beta.vercel.app/]
 
 
 ## Available Scripts

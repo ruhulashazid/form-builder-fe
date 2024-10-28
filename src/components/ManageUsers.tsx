@@ -72,6 +72,7 @@ function ManageUsers() {
                   <Typography>Name: {u.username}</Typography>
                   <Typography>email: {u.email}</Typography>
                   <Typography>phone: {u.phone}</Typography>
+                  <Typography>Role: {u.role ? u.role : "user"}</Typography>
                 </CardContent>
                 <CardActions>
                   <Button
