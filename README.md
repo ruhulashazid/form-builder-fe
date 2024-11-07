@@ -28,7 +28,7 @@
 4. Opening the created forms.
 5. Editing the form :
 <img src="public/features-image/create.JPG" width="200"/>
-   <img src="public/features-image/fonrpage-admin.JPG" width="300"/>
+   <img src="public/features-image/fonrpage-admin.JPG" width="600"/>
    a.Adding Questions:
       Click on the question type you want to add Question Types: multiple choice, checkboxes, image add, short answer, paragraph, date and time. from the toolbar.
       Enter your question text and set any additional options (e.g., choices for multiple-choice questions).
