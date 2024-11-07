@@ -17,7 +17,7 @@
 1. Register and Login the user: 
    a. For registration, users need to provide their name, email, phone number, and password. After logging in, the user can delete their account themselves.
    b. Once registered with an email, the user cannot create another profile with a different name using that same email.
-   c. Users can add a profile image and update their details.
+   c. Users can add a profile image and update their details.   
 2. Register and Login as an Admin:
    a. An admin will register as an admin.
    b. The admin can view data of all users and access any forms they have created. The admin also has the ability to delete any user, as well as delete their own account if they wish.
